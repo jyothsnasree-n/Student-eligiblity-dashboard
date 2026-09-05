@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Event Certificate Eligibility Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <h1>College Event Certificate Eligibility Board</h1>
+        <p class="subtitle">Activity Participation, Point Aggregation & Certificate Eligibility Verifier</p>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      
+      <!-- Top Grid: Fixed Activities & Rules -->
+      <div class="grid-two-col">
+        <!-- Fixed Activity Reference Table -->
+        <section class="card">
+          <div class="card-header">
+            <h2>Fixed Activity Table</h2>
+            <span class="badge badge-neutral">Official Catalog</span>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Activity Name</th>
+                  <th>Category</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody id="fixed-activities-body">
+                <!-- Dynamically populated from FIXED_ACTIVITIES -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Certificate Criteria Card -->
+        <section class="card rules-card">
+          <div class="card-header">
+            <h2>Eligibility Criteria</h2>
+            <span class="badge badge-info">Contract Rules</span>
+          </div>
+          <div class="rules-content">
+            <p>A participant is <strong>Eligible</strong> for a certificate only when both conditions are satisfied:</p>
+            <ul class="rules-list">
+              <li><span class="rule-bullet">•</span> Covers all 3 activity categories: <strong>Learn</strong>, <strong>Build</strong>, and <strong>Share</strong></li>
+              <li><span class="rule-bullet">•</span> Earns a total point sum of at least <strong>6 Points</strong></li>
+            </ul>
+            <div class="rules-note">
+              <p>Note: Repeated activity IDs for the same participant trigger a <strong>Duplicate participation</strong> validation error.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Editable Participant Input Table -->
+      <section class="card">
+        <div class="card-header flex-between">
+          <div>
+            <h2>Participant Activity Records</h2>
+            <p class="section-desc">Edit participant completed activity IDs below (comma-separated tokens)</p>
+          </div>
+          <div class="action-buttons">
+            <button id="btn-evaluate" class="btn btn-primary">Evaluate</button>
+            <button id="btn-reset" class="btn btn-secondary">Reset</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table input-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">Participant ID</th>
+                <th style="width: 25%;">Participant Name</th>
+                <th style="width: 60%;">Completed Activity IDs (Comma-separated)</th>
+              </tr>
+            </thead>
+            <tbody id="participant-input-body">
+              <!-- Dynamically populated editable rows -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Validation Error Display Container -->
+      <div id="validation-container" class="validation-banner hidden">
+        <!-- Rendered by app.js on validation failure -->
+      </div>
+
+      <!-- Evaluation Results & Summary Section -->
+      <div id="results-container" class="results-wrapper hidden">
+        
+        <!-- Summary Counts Bar -->
+        <section class="card summary-card">
+          <div class="summary-grid">
+            <div class="summary-stat">
+              <span class="stat-label">Total Evaluated</span>
+              <span class="stat-value" id="stat-total">0</span>
+            </div>
+            <div class="summary-stat stat-eligible">
+              <span class="stat-label">Eligible Participants</span>
+              <span class="stat-value" id="stat-eligible">0</span>
+            </div>
+            <div class="summary-stat stat-ineligible">
+              <span class="stat-label">Ineligible Participants</span>
+              <span class="stat-value" id="stat-ineligible">0</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Evaluation Results Table -->
+        <section class="card">
+          <div class="card-header">
+            <h2>Evaluation Results & Category Progress</h2>
+            <span class="badge badge-neutral">Sorted: Eligible first (Ascending ID)</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table results-table">
+              <thead>
+                <tr>
+                  <th>Participant</th>
+                  <th>Points</th>
+                  <th>Completed Categories</th>
+                  <th>Eligibility Status</th>
+                  <th>Failure Reasons</th>
+                </tr>
+              </thead>
+              <tbody id="results-body">
+                <!-- Dynamically populated evaluation rows -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+/* Enterprise Light UI - Cisco-Inspired Design System Tokens */
+:root {
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bg-color: #f8fafc;           /* Pure light background */
+  --panel-bg: #ffffff;          /* Crisp white cards */
+  --border-color: #e2e8f0;      /* Subtle border gray */
+  --border-subtle: #cbd5e1;
+  --text-primary: #1e293b;      /* Dark slate text */
+  --text-secondary: #475569;    /* Slate-600 subtitle text */
+  --text-muted: #64748b;        /* Slate-500 muted text */
+  
+  /* Cisco Navy & Accent Colors */
+  --cisco-navy: #0d274c;        /* Cisco deep navy blue for headings */
+  --cisco-blue: #049fd9;        /* Cisco primary cyan blue accent */
+  --cisco-blue-hover: #0070d2;  /* Darker blue hover */
+  --cisco-blue-light: #e0f2fe;  /* Light cyan-blue background tint */
+  --cisco-blue-border: #bae6fd;
+  
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  padding: 2.5rem 1.5rem;
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Header */
+.app-header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1.5rem;
+}
+
+.app-header h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--cisco-navy);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: var(--cisco-blue-hover);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
+}
+
+/* Main Layout Grid */
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.grid-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .grid-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards & Panels */
+.card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.85rem;
+}
+
+.card-header h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cisco-navy);
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* Rules Card */
+.rules-card {
+  background-color: #ffffff;
+  border-color: var(--border-color);
+}
+
+.rules-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.rules-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.rule-bullet {
+  color: var(--cisco-blue);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.rules-note {
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  border-top: 1px dashed var(--border-color);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
+.rules-note p {
+  margin: 0;
+}
+
+/* Tables */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  background-color: #f1f5f9;
+  color: var(--cisco-navy);
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.825rem;
+  text-transform: none; /* Sentence case format - no uppercase forcing */
+}
+
+.data-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Input Fields */
+.input-text {
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  background-color: #ffffff;
+}
+
+.input-text:focus {
+  outline: none;
+  border-color: var(--cisco-blue);
+  box-shadow: 0 0 0 3px rgba(4, 159, 217, 0.15);
+}
+
+/* Action Buttons - Cisco Pill Style */
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 20px; /* Cisco Pill-shaped button */
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--cisco-blue);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--cisco-blue-hover);
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: var(--cisco-blue-hover);
+  border-color: var(--cisco-blue);
+}
+
+.btn-secondary:hover {
+  background-color: var(--cisco-blue-light);
+}
+
+/* Badges - Cisco Blue & Slate Palette (No Red/Green) */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.775rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-transform: none; /* Natural case */
+}
+
+.badge-neutral {
+  background-color: #f1f5f9;
+  color: var(--cisco-navy);
+  border: 1px solid var(--border-color);
+}
+
+.badge-info {
+  background-color: var(--cisco-blue-light);
+  color: var(--cisco-blue-hover);
+  border: 1px solid var(--cisco-blue-border);
+}
+
+/* Cisco Blue Theme for Eligible State */
+.badge-eligible {
+  background-color: var(--cisco-blue-light);
+  color: var(--cisco-blue-hover);
+  border: 1px solid var(--cisco-blue-border);
+  font-weight: 700;
+}
+
+/* Cisco Slate Theme for Ineligible State */
+.badge-ineligible {
+  background-color: #f1f5f9;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  font-weight: 600;
+}
+
+/* Category Progress Chips - Only Completed Activities */
+.category-strip {
+  display: inline-flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.cat-chip {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.775rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid var(--cisco-blue-border);
+  background-color: var(--cisco-blue-light);
+  color: var(--cisco-blue-hover);
+}
+
+/* Points Badge */
+.points-badge {
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 12px;
+}
+
+.points-pass {
+  background-color: var(--cisco-blue-light);
+  color: var(--cisco-blue-hover);
+  border: 1px solid var(--cisco-blue-border);
+}
+
+.points-fail {
+  background-color: #f1f5f9;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Validation Alert Banner */
+.validation-banner {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-left: 5px solid #dc2626;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  color: #991b1b;
+  box-shadow: var(--shadow-sm);
+}
+
+.validation-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.validation-detail {
+  font-size: 0.875rem;
+  color: #b91c1c;
+}
+
+/* Summary Counts Bar - Cisco Blue Palette */
+.summary-card {
+  background-color: #ffffff;
+  border-color: var(--border-color);
+  padding: 1.25rem 1.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+}
+
+.stat-eligible {
+  background-color: var(--cisco-blue-light);
+  border-color: var(--cisco-blue-border);
+}
+
+.stat-ineligible {
+  background-color: #f1f5f9;
+  border-color: var(--border-subtle);
+}
+
+.stat-label {
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: none; /* Sentence case format */
+  color: var(--text-secondary);
+}
+
+.stat-eligible .stat-label {
+  color: var(--cisco-blue-hover);
+}
+
+.stat-ineligible .stat-label {
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--cisco-navy);
+}
+
+.stat-eligible .stat-value {
+  color: var(--cisco-blue-hover);
+}
+
+.stat-ineligible .stat-value {
+  color: var(--cisco-navy);
+}
+
+/* Failure Reasons List - Subtle Slate Badges */
+.reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.reason-tag {
+  font-size: 0.775rem;
+  font-weight: 600;
+  background-color: #f1f5f9;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.55rem;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Utilities */
+.hidden {
+  display: none !important;
+}
